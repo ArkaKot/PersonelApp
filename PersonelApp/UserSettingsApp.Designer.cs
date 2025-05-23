@@ -113,6 +113,7 @@
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.cbVisibleTime);
             this.Name = "UserSettingsApp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserSettingsApp";
             ((System.ComponentModel.ISupportInitialize)(this.nupMinAge)).EndInit();
             this.ResumeLayout(false);

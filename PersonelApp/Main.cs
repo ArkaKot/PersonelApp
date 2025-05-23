@@ -206,28 +206,20 @@ namespace PersonelApp
                 return;
             }
 
-            var confirmQuit = MessageBox.Show($"Czy na pewno chcesz zwolnić osobę o{(selectedPerson.Cells[1].Value.ToString() + " " + selectedPerson.Cells[2].Value.ToString()).Trim()}", "Zwalnianie Pracownika", MessageBoxButtons.OKCancel);
+            var dismissPerson = new DismissPerson(Convert.ToInt32(dgvPersonel.SelectedRows[0].Cells[0].Value),dgvPersonel);
 
-            if (confirmQuit == DialogResult.OK)
-            {
-                DismissPerson(Convert.ToInt32(selectedPerson.Cells[0].Value));
-                RefreshPersonalList();
+            dismissPerson.FormClosing += DismissPerson_FormClosing;
 
-            }
+            dismissPerson.ShowDialog();
+
+
         }
 
-        private void DismissPerson(int id)
+      
+
+        private void DismissPerson_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var persons = _fileHelper.DeserializeFromFile();
-
-            var checkPerson = persons.FirstOrDefault(x => x.Id == id);
-
-            checkPerson.EndDate = DateTime.Now;
-            checkPerson.EmploymentStatusId = 2;
-            checkPerson.EmploymentStatusName = "Zwolniony/a";
-
-            _fileHelper.SerializeToFile(persons);
-
+            RefreshPersonalList();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

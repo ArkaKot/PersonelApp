@@ -57,6 +57,12 @@
     </Compile>
     <Compile Include="Contract.cs" />
     <Compile Include="ContractList.cs" />
+    <Compile Include="DismissPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DismissPerson.Designer.cs">
+      <DependentUpon>DismissPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmploymentStatus.cs" />
     <Compile Include="EmploymentStatusList.cs" />
     <Compile Include="FileHelper.cs" />
@@ -77,6 +83,9 @@
     </Compile>
     <EmbeddedResource Include="AddEditPerson.resx">
       <DependentUpon>AddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DismissPerson.resx">
+      <DependentUpon>DismissPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
